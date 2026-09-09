@@ -33,10 +33,10 @@ Durante el desarrollo se tomaron las siguientes decisiones técnicas:
 
 * **Code Challenge Score fuera de rango:** se encontraron 1,000 filas (2% del dataset) con Code Challenge Score = 100, fuera del rango lógico de 0-10. Al ser una cantidad significativa y no un caso aislado, se asumió error de captura del puntaje y se corrigió al máximo válido (10) en lugar de descartar las filas.
 
-* **Valores centinela en Yoe:** se encontraron 500 filas con Yoe = -5.0 y otras 500 con Yoe = 99.0 — valores exactos y repetidos, no una dispersión típica de errores de tipeo, lo que indica que representan un código de "dato faltante" disfrazado de número. Como Yoe no participa en la regla HIRED, el impacto es solo de calidad de datos, no de los KPIs. Se trataron como NaN en vez de inventar un valor de experiencia real.
+* **Valores centinela en Yoe:** se encontraron 500 filas con Yoe = -5.0 y otras 500 con Yoe = 99.0 - valores exactos y repetidos, no una dispersión típica de errores de tipeo, lo que indica que representan un código de "dato faltante" disfrazado de número. Como Yoe no participa en la regla HIRED, el impacto es solo de calidad de datos, no de los KPIs. Se trataron como NaN en vez de inventar un valor de experiencia real.
 
 * **Columnas categóricas (Country, Technology, Seniority):** se revisaron los valores únicos de cada una en busca de inconsistencias de texto (mayúsculas/minúsculas distintas, espacios de más). No se encontraron duplicados de este tipo.
 
 * **Nulos en Seniority:** se rellenaron con "Unknown" en vez de eliminarse, para no perder la información de puntajes de esos candidatos.
 
-* **Technical Interview nulo:** no se rellena ni se asume un valor — al no cumplir la condición `>= 7`, el candidato queda automáticamente excluido de HIRED sin necesidad de una regla aparte.
+* **Technical Interview nulo:** no se rellena ni se asume un valor - al no cumplir la condición `>= 7`, el candidato queda automáticamente excluido de HIRED sin necesidad de una regla aparte.
